@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Yalanotlob</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if user_signed_in? %>
+
+    <%= link_to 'Logout', '/users/sign_out', method: :delete, data: { confirm: 'Are you sure?' } %><br>
+
+<% else %>
+   <a href="/users/sign_in">sign in</a>
+    <%= link_to "Sign up", '/users/sign_up' , method: :get %><br>
+<% end %>
+<%= yield %>
+</body>
+</html>
